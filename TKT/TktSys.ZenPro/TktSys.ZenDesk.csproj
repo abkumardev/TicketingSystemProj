@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TktSys.Business.Entities\TktSys.Business.Entities.csproj" />
+    <ProjectReference Include="..\TktSys.Common\TktSys.Utility.Common.csproj" />
+  </ItemGroup>
+
+</Project>
