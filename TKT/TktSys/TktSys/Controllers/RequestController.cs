@@ -14,17 +14,17 @@ namespace TktSys.Controllers
     [ApiController]
     public class RequestController : ControllerBase
     {
-        //ITicketService ticketService;
-        //public RequestController(ITicketService _ticketService)
-        //{
-        //    ticketService = _ticketService;
-        //}
-
-        private readonly IEnumerable<ITicketService> ticketServices;
-        public RequestController(IEnumerable<ITicketService> _ticketServices)
+        ITicketService ticketService;
+        public RequestController(ITicketService _ticketService)
         {
-            ticketServices = _ticketServices;
+            ticketService = _ticketService;
         }
+
+        //private readonly IEnumerable<ITicketService> ticketServices;
+        //public RequestController(IEnumerable<ITicketService> _ticketServices)
+        //{
+        //    ticketServices = _ticketServices;
+        //}
         // GET: api/Request
         [HttpGet]
         //public IEnumerable<string> Get()
@@ -52,7 +52,7 @@ namespace TktSys.Controllers
         public IActionResult Post([FromBody] Request request)
         {
             Guid requestId = Guid.Empty;
-            var ticketService = ticketServices.Where(x => x.TicketType == request.TicketSystemType).FirstOrDefault();
+            //var ticketService = ticketServices.Where(x => x.TicketType == request.TicketSystemType).FirstOrDefault();
             requestId = ticketService.CreateTicket(request);
             return Ok(requestId);
         }

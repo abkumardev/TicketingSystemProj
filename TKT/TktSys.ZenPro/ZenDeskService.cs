@@ -9,6 +9,9 @@ namespace TktSys.ZenPro
     public class ZenDeskService : ITicketService
     {
         private readonly TicketSystemTypeEnum ticketType = TicketSystemTypeEnum.ZenDesk;
+        public Guid TicketNumber { get; set; }
+        public Guid EmployeeId { get; set; }
+        public DateTime CreatedOn { get; set; }
         public TicketSystemTypeEnum TicketType
         {
             get

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TktSys.Business.Entities;
 using TktSys.DeskPro;
+using TktSys.Extensions;
 using TktSys.ZenPro;
 
 namespace TktSys
@@ -28,8 +29,9 @@ namespace TktSys
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<ITicketService, DeskProService>();
-            services.AddTransient<ITicketService, ZenDeskService>();
+            services.AddDependencyRegistry();
+            //services.AddTransient<ITicketService, DeskProService>();
+            //services.AddTransient<ITicketService, ZenDeskService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

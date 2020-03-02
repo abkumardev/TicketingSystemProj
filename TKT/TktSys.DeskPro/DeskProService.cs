@@ -9,6 +9,10 @@ namespace TktSys.DeskPro
     public class DeskProService : ITicketService
     {
         private readonly TicketSystemTypeEnum ticketType = TicketSystemTypeEnum.DeskPro;
+        public Guid TicketId { get; set; }
+        public Guid EmployeeId { get; set; }
+        public DateTime DateCreated { get; set; }
+        public StatusEnum TicketStatus { get; set; }
         public TicketSystemTypeEnum TicketType
         {
             get
@@ -16,15 +20,15 @@ namespace TktSys.DeskPro
                 return this.ticketType;
             }
         }
-        DeskProTicket deskProTicket;
+        DeskProService deskProTicket;
         public Guid CreateTicket(Request request)
         {
             Guid requestId = Guid.Empty;
-            deskProTicket = new DeskProTicket();
+            deskProTicket = new DeskProService();
             deskProTicket.EmployeeId = request.RequestResourceId;
             deskProTicket.DateCreated = request.CreatedDate;
             deskProTicket.TicketStatus = request.Status;
-            GenericRepository<DeskProTicket> genericCRUD = new GenericRepository<DeskProTicket>();
+            GenericRepository<DeskProService> genericCRUD = new GenericRepository<DeskProService>();
             return genericCRUD.Post(deskProTicket, "deskProAPIUrl");
         }
     }
