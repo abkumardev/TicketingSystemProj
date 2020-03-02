@@ -32,6 +32,20 @@ namespace TktSys
             services.AddDependencyRegistry();
             //services.AddTransient<ITicketService, DeskProService>();
             //services.AddTransient<ITicketService, ZenDeskService>();
+
+            //services.AddTransient<DeskProService>();
+            //services.AddTransient<ZenDeskService>();
+            //services.AddTransient<Func<TicketSystemTypeEnum, ITicketService>>(serviceProvider => key =>
+            //{
+            //    switch (key)
+            //    {
+            //        case TicketSystemTypeEnum.DeskPro: return serviceProvider.GetRequiredService<DeskProService>();
+            //        case TicketSystemTypeEnum.ZenDesk: return serviceProvider.GetRequiredService<ZenDeskService>();
+            //        default:
+            //            throw new KeyNotFoundException();
+            //    }
+            //});
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

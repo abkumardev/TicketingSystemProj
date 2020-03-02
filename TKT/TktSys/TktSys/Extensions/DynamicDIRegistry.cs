@@ -13,8 +13,8 @@ namespace TktSys.Extensions
     {
         public static IServiceCollection AddDependencyRegistry(this IServiceCollection services)
         {
-            services.AddScoped<ITicketService, DeskProService>();
-            services.AddScoped<ITicketService, ZenDeskService>();
+            //services.AddScoped<ITicketService, DeskProService>();
+            //services.AddScoped<ITicketService, ZenDeskService>();
             services.AddTransient<DeskProService>();
             services.AddTransient<ZenDeskService>();
             services.AddScoped<Func<TicketSystemTypeEnum, ITicketService>>(provider => (key) =>
